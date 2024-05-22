@@ -8,10 +8,23 @@ function createGrid(size) {
             let col = document.createElement("div");
             col.style.width = `${100/gridSize}%`;
             col.style.border = "1px solid grey";
-
-            col.addEventListener("mouseenter", () => {
+            if (darken) {
+                col.style.opacity = 0;
+                col.style.backgroundColor = "black";
+            }
+            if (randomize) {
                 col.style.backgroundColor = getRandomColor();
-            });
+            }
+
+            if (darken) {
+                col.addEventListener("mouseenter", ()=> {
+                    col.style.opacity = Number(col.style.opacity) + .1;
+                });
+            } else {
+                col.addEventListener("mouseenter", () => {
+                    col.style.backgroundColor = getRandomColor();
+                });
+            }
 
             row.appendChild(col);
         }
@@ -42,7 +55,17 @@ function clearGrid() {
     }
 }
 
+function randomizeGrid() {
+    randomize = !randomize;
+}
+
+function darkenGrid() {
+    darken = !darken;
+}
+
 let gridSize = 16;
+let randomize = false;
+let darken = false;
 
 const gridButton = document.querySelector(".size");
 gridButton.addEventListener("click", () => {

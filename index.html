@@ -8,7 +8,15 @@
 </head>
 <body>
     <h1>Etch-a-Sketch</h1>
-    <button class="size">Create a New Grid</button>
+    <div class="options">
+        <button class="size">Create a New Grid</button>
+        <div class="extra">
+            <input type="checkbox" id="randomize" onclick="randomizeGrid()">
+            <label for="randomize">Randomize Grid</label>
+            <input type="checkbox" id="darken" onclick="darkenGrid()">
+            <label for="darken">Darken Grid</label>
+        </div>
+    </div>
     <container class="grid">
     </container>
     <script src="main.js"></script>

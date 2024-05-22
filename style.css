@@ -16,3 +16,15 @@ body {
     flex-direction: column;
     border: 1px solid black;
 }
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.extra {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
