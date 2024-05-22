@@ -3,6 +3,9 @@
 }
 
 .grid {
+    height: 1000px;
+    width: 1000px;
     display: flex;
+    flex-direction: column;
     border: 1px solid black;
 }
