@@ -1,5 +1,5 @@
 function createGrid(size) {
-    let grid = document.querySelector(".grid");
+    const grid = document.querySelector(".grid");
     for(let i = 0; i < size; i++) {
         let row = document.createElement("div");
         row.style.display = "flex";
@@ -28,6 +28,34 @@ function getRandomColor() {
     return color;
 }
 
-const gridSize = 16;
+function validateGridSize() {
+    if (gridSize >= 1 && gridSize <= 100) {
+        return true;
+    }
+    return false;
+}
 
-createGrid(16);
+function clearGrid() {
+    const grid = document.querySelector(".grid");
+    while(grid.firstChild) {
+        grid.removeChild(grid.lastChild);
+    }
+}
+
+let gridSize = 16;
+
+const gridButton = document.querySelector(".size");
+gridButton.addEventListener("click", () => {
+    do {
+    gridSize = prompt("Please enter a grid size (up to 100)", "16");
+    if (!validateGridSize()) {
+        alert("Please enter a valid size");
+    }
+    else {
+        clearGrid();
+        createGrid(gridSize);
+    }
+    } while (!validateGridSize());
+});
+
+createGrid(gridSize);

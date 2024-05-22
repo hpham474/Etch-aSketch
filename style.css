@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .grid {
     height: 1000px;
     width: 1000px;
